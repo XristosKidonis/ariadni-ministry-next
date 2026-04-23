@@ -37,15 +37,28 @@ export default function Give() {
               and reach more people with the Gospel. 100% of donations go
               directly to ministry operations.
             </p>
-            <a
-              href="#"
-              className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 text-white transition-colors"
-              style={{ background: "var(--black)" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "var(--dark-2, #2A2920)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "var(--black)")}
-            >
-              GIVE NOW →
-            </a>
+            <div className="flex gap-4 pt-2">
+              <a
+                href="https://www.paypal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 transition-colors"
+                style={{ background: "var(--accent)", color: "#fff" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "0.8")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "1")}
+              >
+                DONATE VIA PAYPAL →
+              </a>
+              <button
+                className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 transition-colors border-2"
+                style={{ borderColor: "var(--accent)", color: "var(--accent)", background: "transparent" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "var(--accent)", (e.currentTarget as HTMLButtonElement).style.color = "#fff")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "transparent", (e.currentTarget as HTMLButtonElement).style.color = "var(--accent)")}
+                onClick={() => alert("Zelle: Contact ariadni@arise.ministry or ask for details")}
+              >
+                ZELLE
+              </button>
+            </div>
           </div>
           <div className="aspect-[4/3] overflow-hidden">
             <Image

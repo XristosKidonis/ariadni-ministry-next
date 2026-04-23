@@ -66,14 +66,14 @@ export default function Latest() {
             <p className="text-[11px] mb-5" style={{ color: "var(--muted)", letterSpacing: "0.06em" }}>
               {cards[0].meta}
             </p>
-            <div className="aspect-[4/3] overflow-hidden mt-auto">
+            <div className="aspect-[3/4] overflow-hidden mt-auto bg-gray-200">
               <Image
                 src={cards[0].img}
                 alt={cards[0].title}
-                width={600}
-                height={450}
+                width={450}
+                height={600}
                 className="w-full h-full transition-transform duration-500 hover:scale-[1.04]"
-                style={{ objectFit: "cover", objectPosition: "center 20%" }}
+                style={{ objectFit: "cover", objectPosition: "center" }}
               />
             </div>
           </div>
@@ -95,8 +95,8 @@ export default function Latest() {
             <p className="text-[11px] mb-4" style={{ color: "var(--muted)", letterSpacing: "0.06em" }}>
               {cards[1].meta}
             </p>
-            <div className="aspect-[4/3] overflow-hidden">
-              <Image src={cards[1].img} alt={cards[1].title} width={600} height={450} className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.04]" />
+            <div className="aspect-[3/4] overflow-hidden bg-gray-200">
+              <Image src={cards[1].img} alt={cards[1].title} width={450} height={600} className="w-full h-full transition-transform duration-500 hover:scale-[1.04]" style={{ objectFit: "cover", objectPosition: "center" }} />
             </div>
           </div>
 
@@ -117,8 +117,8 @@ export default function Latest() {
             <p className="text-[11px] mb-4" style={{ color: "var(--muted)", letterSpacing: "0.06em" }}>
               {cards[2].meta}
             </p>
-            <div className="aspect-[4/3] overflow-hidden">
-              <Image src={cards[2].img} alt={cards[2].title} width={600} height={450} className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.04]" />
+            <div className="aspect-[3/4] overflow-hidden bg-gray-200">
+              <Image src={cards[2].img} alt={cards[2].title} width={450} height={600} className="w-full h-full transition-transform duration-500 hover:scale-[1.04]" style={{ objectFit: "cover", objectPosition: "center" }} />
             </div>
           </div>
 

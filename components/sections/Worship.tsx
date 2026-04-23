@@ -42,12 +42,13 @@ export default function Worship() {
           </div>
 
           {/* Featured image */}
-          <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-8">
+          <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-8 bg-gray-200">
             <Image
               src="/ariadni/aria-02.jpg"
               alt="Ariadni worship moment"
               fill
               className="object-cover"
+              style={{ objectPosition: "center" }}
             />
           </div>
 
