@@ -7,7 +7,6 @@ const links = [
   { label: "About",    href: "#about" },
   { label: "Messages", href: "#messages" },
   { label: "Worship",  href: "#worship" },
-  { label: "Events",   href: "#events" },
   { label: "Give",     href: "#give" },
 ];
 
@@ -28,8 +27,9 @@ export default function Nav() {
           <Image
             src="/logo-white.png"
             alt="Fresh Fire Revival Ministries"
-            width={40}
-            height={40}
+            width={120}
+            height={120}
+            style={{ maxHeight: "100%", width: "auto" }}
           />
         </a>
 
@@ -58,30 +58,6 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <a
-            href="#give"
-            className="transition-colors"
-            style={{
-              fontSize: 11,
-              fontWeight: 500,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.5)",
-              textDecoration: "none",
-              borderBottom: "1px solid rgba(255,255,255,0.25)",
-              paddingBottom: 1,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = "rgba(255,255,255,0.9)";
-              e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.7)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "rgba(255,255,255,0.5)";
-              e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.25)";
-            }}
-          >
-            Give
-          </a>
         </div>
 
         {/* Mobile toggle */}

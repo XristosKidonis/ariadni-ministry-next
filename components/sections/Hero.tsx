@@ -17,11 +17,15 @@ export default function Hero() {
         @media (max-width: 768px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            padding: 20px !important;
+            gap: 40px !important;
+            padding: 40px 20px !important;
           }
-          .hero-left, .hero-right {
+          .hero-text, .hero-image {
             border: none !important;
             padding: 0 !important;
+          }
+          .hero-image img {
+            height: 400px !important;
           }
         }
       `}</style>
@@ -33,26 +37,24 @@ export default function Hero() {
           width: "100%",
           maxWidth: 1400,
           margin: "0 auto",
-          padding: "0 40px",
+          padding: "60px 40px",
           display: "grid",
-          gridTemplateColumns: "220px 1fr 320px",
-          gap: 0,
+          gridTemplateColumns: "1fr 1fr",
+          gap: 80,
           alignItems: "center",
           minHeight: "calc(100vh - 100px)",
           boxSizing: "border-box",
         }}
       >
-        {/* Left: small description */}
+        {/* Left: Headline + description */}
         <div
-          className="hero-left"
+          className="hero-text"
           style={{
-            paddingRight: 40,
-            borderRight: "1px solid rgba(255,255,255,0.07)",
-            alignSelf: "stretch",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            paddingTop: 60,
+            minWidth: 0,
+            maxWidth: 600,
           }}
         >
           <div
@@ -60,108 +62,133 @@ export default function Hero() {
               width: 6,
               height: 6,
               borderRadius: "50%",
-              background: "rgba(255,255,255,0.4)",
-              marginBottom: 48,
+              background: "var(--accent)",
+              marginBottom: 32,
             }}
           />
-          <p
-            style={{
-              fontSize: 13,
-              lineHeight: 1.85,
-              color: "rgba(255,255,255,0.4)",
-              maxWidth: 190,
-              letterSpacing: "0.01em",
-            }}
-          >
-            Ariadni is a worship leader
-            <br />
-            and minister bringing the
-            <br />
-            presence of God to cities
-            <br />
-            and nations.
-          </p>
-        </div>
-
-        {/* Center: headline */}
-        <div style={{ padding: "0 48px" }}>
-          <AnimatedHeroTitle
-            staticText="BRINGING"
-            words={["HEAVEN", "HOPE", "HEALING", "GLORY", "REVIVAL"]}
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(68px, 10vw, 152px)",
-              fontWeight: 400,
-              lineHeight: 0.94,
-              letterSpacing: "0.015em",
-              textTransform: "uppercase",
-              color: "var(--cream)",
-            }}
-          />
-          <p
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(68px, 10vw, 152px)",
-              fontWeight: 400,
-              lineHeight: 0.94,
-              letterSpacing: "0.015em",
-              textTransform: "uppercase",
-              color: "var(--cream)",
-              marginTop: 0,
-            }}
-          >
-            TO EARTH,
-            <br />
-            ONE HEART
-            <br />
-            AT A TIME.
-          </p>
-        </div>
-
-        {/* Right: photo card */}
-        <div
-          className="hero-right"
-          style={{
-            paddingLeft: 40,
-            borderLeft: "1px solid rgba(255,255,255,0.07)",
-            alignSelf: "stretch",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            paddingTop: 60,
-            paddingBottom: 40,
-          }}
-        >
           <div
             style={{
-              borderRadius: 10,
-              overflow: "hidden",
-              width: 280,
-              height: 380,
-              backgroundColor: "#333",
+              maxWidth: 500,
+              fontSize: "clamp(52px, 8vw, 96px)",
+              lineHeight: 1.1,
             }}
           >
-            <img
-              src="/ariadni/aria-02.jpg"
-              alt="Ariadni — Arise Ministry"
+            <AnimatedHeroTitle
+              staticText="BRINGING"
+              words={["HEAVEN", "HOPE", "HEALING", "GLORY", "REVIVAL"]}
               style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center",
+                fontFamily: "var(--font-display)",
+                fontWeight: 400,
+                letterSpacing: "0.015em",
+                textTransform: "uppercase",
+                color: "var(--cream)",
+                display: "inline",
+                whiteSpace: "nowrap",
               }}
             />
           </div>
           <p
             style={{
-              fontSize: 10,
-              letterSpacing: "0.14em",
-              color: "rgba(255,255,255,0.28)",
-              marginTop: 14,
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(52px, 8vw, 96px)",
+              fontWeight: 400,
+              lineHeight: 1.1,
+              letterSpacing: "0.015em",
               textTransform: "uppercase",
+              color: "var(--cream)",
+              margin: "24px 0 40px 0",
+              maxWidth: 500,
             }}
           >
-            Arise Ministry · Est. 2024
+            TO EARTH,
+            <br />
+            ONE HEART AT A TIME.
+          </p>
+          <p
+            style={{
+              fontSize: 15,
+              lineHeight: 1.7,
+              color: "rgba(255,255,255,0.5)",
+              maxWidth: 420,
+              letterSpacing: "0.01em",
+              margin: 0,
+            }}
+          >
+            Ariadni is a worship leader and minister bringing the presence of
+            God to cities and nations through worship, preaching, and prophetic
+            ministry.
+          </p>
+        </div>
+
+        {/* Right: Large impactful photo */}
+        <div
+          className="hero-image"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-end",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              borderRadius: 20,
+              overflow: "hidden",
+              width: "100%",
+              maxWidth: 550,
+              height: 650,
+              position: "relative",
+              boxShadow: "-60px 60px 120px rgba(0,0,0,0.8), 0 0 80px rgba(0,0,0,0.5)",
+            }}
+          >
+            <img
+              src="/ariadni/aria-02.jpg"
+              alt="Ariadni Kidonis — Fresh Fire Revival Ministries"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center 20%",
+              }}
+            />
+            {/* Dark overlay */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: "rgba(0, 0, 0, 0.25)",
+                pointerEvents: "none",
+              }}
+            />
+            {/* Vignette blend */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background:
+                  "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.4) 100%)",
+                pointerEvents: "none",
+              }}
+            />
+          </div>
+          <p
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.14em",
+              color: "rgba(255,255,255,0.28)",
+              marginTop: 20,
+              textTransform: "uppercase",
+              margin: "20px 0 0 0",
+            }}
+          >
+            Fresh Fire Revival Ministries
           </p>
         </div>
       </div>

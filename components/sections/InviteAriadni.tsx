@@ -1,12 +1,60 @@
 "use client";
+import { useState } from "react";
+import { X } from "lucide-react";
 
 export default function InviteAriadni() {
-  const handleInvite = () => {
-    const subject = encodeURIComponent("Invitation to Minister at Our Event");
-    const body = encodeURIComponent(
-      "Hello Ariadni,\n\nWe would like to invite you to minister at our upcoming event...\n\n"
-    );
-    window.location.href = `mailto:Freshfirerevivalministriesinc@gmail.com?subject=${subject}&body=${body}`;
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    organization: "",
+    eventType: "",
+    eventDate: "",
+    location: "",
+    details: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) {
+      alert("Please fill in required fields");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/event-inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Inquiry submitted successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          organization: "",
+          eventType: "",
+          eventDate: "",
+          location: "",
+          details: "",
+        });
+        setShowForm(false);
+      }
+    } catch (error) {
+      alert("Error submitting inquiry");
+    }
   };
 
   return (
@@ -32,10 +80,13 @@ export default function InviteAriadni() {
               className="text-[15px] leading-[1.75] mb-8"
               style={{ color: "var(--muted)" }}
             >
-              Ariadni travels nationally and internationally to minister at churches, conferences, and special events. Whether you need a worship leader, speaker, or prayer-focused ministry experience, we'd love to hear from you.
+              Ariadni travels nationally and internationally to minister at
+              churches, conferences, and special events. Whether you need a
+              worship leader, speaker, or prayer-focused ministry experience,
+              we'd love to hear from you.
             </p>
             <button
-              onClick={handleInvite}
+              onClick={() => setShowForm(true)}
               className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 transition-opacity"
               style={{
                 background: "var(--accent)",
@@ -93,6 +144,324 @@ export default function InviteAriadni() {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showForm && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.7)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 50,
+            padding: "20px",
+          }}
+          onClick={() => setShowForm(false)}
+        >
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 16,
+              width: "100%",
+              maxWidth: 600,
+              maxHeight: "90vh",
+              overflow: "auto",
+              padding: "40px",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: 32,
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: 24,
+                  fontWeight: 600,
+                  fontFamily: "var(--font-display)",
+                  textTransform: "uppercase",
+                  margin: 0,
+                }}
+              >
+                Event Inquiry
+              </h3>
+              <button
+                onClick={() => setShowForm(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 0,
+                  color: "var(--muted)",
+                }}
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+              <div>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    marginBottom: 8,
+                    color: "var(--muted)",
+                  }}
+                >
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                    fontSize: 14,
+                    fontFamily: "inherit",
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+
+              <div>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    marginBottom: 8,
+                    color: "var(--muted)",
+                  }}
+                >
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                    fontSize: 14,
+                    fontFamily: "inherit",
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+
+              <div>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    marginBottom: 8,
+                    color: "var(--muted)",
+                  }}
+                >
+                  Church / Organization
+                </label>
+                <input
+                  type="text"
+                  name="organization"
+                  value={formData.organization}
+                  onChange={handleChange}
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                    fontSize: 14,
+                    fontFamily: "inherit",
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+
+              <div>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    marginBottom: 8,
+                    color: "var(--muted)",
+                  }}
+                >
+                  Type of Event
+                </label>
+                <select
+                  name="eventType"
+                  value={formData.eventType}
+                  onChange={handleChange}
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                    fontSize: 14,
+                    fontFamily: "inherit",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  <option value="">Select...</option>
+                  <option value="church-service">Church Service</option>
+                  <option value="conference">Conference</option>
+                  <option value="workshop">Workshop</option>
+                  <option value="special-event">Special Event</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    marginBottom: 8,
+                    color: "var(--muted)",
+                  }}
+                >
+                  Event Date
+                </label>
+                <input
+                  type="date"
+                  name="eventDate"
+                  value={formData.eventDate}
+                  onChange={handleChange}
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                    fontSize: 14,
+                    fontFamily: "inherit",
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+
+              <div>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    marginBottom: 8,
+                    color: "var(--muted)",
+                  }}
+                >
+                  Location
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  placeholder="City, State / Country"
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                    fontSize: 14,
+                    fontFamily: "inherit",
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+
+              <div>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    marginBottom: 8,
+                    color: "var(--muted)",
+                  }}
+                >
+                  Additional Details
+                </label>
+                <textarea
+                  name="details"
+                  value={formData.details}
+                  onChange={handleChange}
+                  placeholder="Tell us more about your event, expectations, budget, etc."
+                  rows={4}
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                    fontSize: 14,
+                    fontFamily: "inherit",
+                    boxSizing: "border-box",
+                    resize: "vertical",
+                  }}
+                />
+              </div>
+
+              <button
+                type="submit"
+                style={{
+                  background: "var(--accent)",
+                  color: "#fff",
+                  border: "none",
+                  padding: "14px 24px",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  borderRadius: 8,
+                  cursor: "pointer",
+                  marginTop: 12,
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.opacity = "0.8";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.opacity = "1";
+                }}
+              >
+                SUBMIT INQUIRY
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
