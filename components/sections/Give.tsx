@@ -2,9 +2,11 @@
 import Image from "next/image";
 import { useState } from "react";
 
+const DONATION_EMAIL = "Freshfirerevivalministriesinc@gmail.com";
+const ZELLE_EMAIL = "Freshfirerevivalministriesinc@gmail.com";
+
 export default function Give() {
-  const [hoverPaypal, setHoverPaypal] = useState(false);
-  const [hoverZelle, setHoverZelle] = useState(false);
+  const [showZelleInfo, setShowZelleInfo] = useState(false);
 
   return (
     <>
@@ -63,9 +65,9 @@ export default function Give() {
                 and reach more people with the Gospel. 100% of donations go
                 directly to ministry operations.
               </p>
-              <div className="flex gap-4 pt-2">
+              <div className="flex gap-4 pt-2 flex-wrap">
                 <a
-                  href="https://www.paypal.com/donate"
+                  href={`https://www.paypal.com/donate?hosted_button_id=EXAMPLE&email=${DONATION_EMAIL}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-paypal inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3"
@@ -74,13 +76,40 @@ export default function Give() {
                 </a>
                 <button
                   className="btn-zelle inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3"
-                  onClick={() =>
-                    alert("Contact: ariadni@arise.ministry for Zelle details")
-                  }
+                  onClick={() => setShowZelleInfo(!showZelleInfo)}
                 >
                   ZELLE
                 </button>
               </div>
+              {showZelleInfo && (
+                <div
+                  className="mt-4 p-4"
+                  style={{
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid var(--border)",
+                    borderRadius: 8,
+                  }}
+                >
+                  <p
+                    className="text-[13px] mb-3"
+                    style={{ color: "var(--muted)" }}
+                  >
+                    <strong>Send Zelle transfer to:</strong>
+                  </p>
+                  <p
+                    className="text-[14px] font-semibold"
+                    style={{ color: "#fff" }}
+                  >
+                    {ZELLE_EMAIL}
+                  </p>
+                  <p
+                    className="text-[12px] mt-3"
+                    style={{ color: "rgba(255,255,255,0.5)" }}
+                  >
+                    Please include a note: "Donation to Arise Ministry"
+                  </p>
+                </div>
+              )}
             </div>
             <div className="aspect-[4/3] overflow-hidden">
               <Image

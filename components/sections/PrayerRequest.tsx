@@ -9,6 +9,7 @@ export default function PrayerRequest() {
     prayer: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -17,13 +18,32 @@ export default function PrayerRequest() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", prayer: "" });
-    }, 3000);
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/prayer-requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit prayer request");
+      }
+
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: "", email: "", prayer: "" });
+      }, 4000);
+    } catch (error) {
+      console.error("Error submitting prayer request:", error);
+      alert("Failed to submit prayer request. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -201,15 +221,19 @@ export default function PrayerRequest() {
               <div className="pt-2 flex justify-center">
                 <button
                   type="submit"
+                  disabled={loading}
                   className="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.12em] uppercase px-10 py-4 transition-all duration-300"
                   style={{
-                    background: "var(--accent)",
+                    background: loading ? "rgba(193, 122, 53, 0.5)" : "var(--accent)",
                     color: "#fff",
                     borderRadius: 4,
+                    cursor: loading ? "not-allowed" : "pointer",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.transform =
-                      "scale(1.05)";
+                    if (!loading) {
+                      (e.currentTarget as HTMLButtonElement).style.transform =
+                        "scale(1.05)";
+                    }
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLButtonElement).style.transform =
@@ -217,7 +241,7 @@ export default function PrayerRequest() {
                   }}
                 >
                   <Heart size={16} />
-                  SUBMIT REQUEST
+                  {loading ? "SUBMITTING..." : "SUBMIT REQUEST"}
                 </button>
               </div>
             </div>
