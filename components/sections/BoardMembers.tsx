@@ -52,7 +52,7 @@ export default function BoardMembers() {
               }}
             >
               {/* Image */}
-              <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
+              <div className="relative aspect-[2/3] overflow-hidden bg-gray-100">
                 <Image
                   src={member.image}
                   alt={member.name}

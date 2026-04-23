@@ -6,8 +6,9 @@ import Mission           from "@/components/sections/Mission";
 import BoardMembers      from "@/components/sections/BoardMembers";
 import Worship           from "@/components/sections/Worship";
 import Messages          from "@/components/sections/Messages";
+import Vision            from "@/components/sections/Vision";
 import CTASection        from "@/components/sections/CTASection";
-import Events            from "@/components/sections/Events";
+import InviteAriadni     from "@/components/sections/InviteAriadni";
 import Give              from "@/components/sections/Give";
 import PrayerRequest     from "@/components/sections/PrayerRequest";
 import Newsletter        from "@/components/sections/Newsletter";
@@ -32,15 +33,9 @@ export default function Home() {
         <BoardMembers />
         <Worship />
         <Messages />
-        <Marquee
-          items={["UNSHAKEABLE FAITH", "RUNNING YOUR RACE", "THE ANCHOR HOLDS", "WHEN GOD FEELS SILENT"]}
-          speed={50}
-          reverse
-          className="py-5 border-y text-[11px] font-semibold tracking-[0.18em]"
-          style={{ borderColor: "var(--border)", color: "var(--muted)" }}
-        />
+        <Vision />
         <CTASection />
-        <Events />
+        <InviteAriadni />
         <Give />
         <PrayerRequest />
         <Newsletter />

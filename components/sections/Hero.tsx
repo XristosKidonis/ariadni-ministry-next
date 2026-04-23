@@ -127,12 +127,13 @@ export default function Hero() {
             }}
           >
             <img
-              src="/ariadni/aria-01.jpg"
+              src="/ariadni/aria-02.jpg"
               alt="Ariadni — Arise Ministry"
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                objectPosition: "center",
               }}
             />
           </div>
@@ -163,16 +164,31 @@ export default function Hero() {
           width: "100%",
         }}
       >
-        <span
-          style={{
-            fontSize: 10,
-            letterSpacing: "0.16em",
-            color: "rgba(255,255,255,0.28)",
-            textTransform: "uppercase",
-          }}
-        >
-          Worship · Preaching · Ministry
-        </span>
+        <div>
+          <span
+            style={{
+              fontSize: 10,
+              letterSpacing: "0.16em",
+              color: "rgba(255,255,255,0.28)",
+              textTransform: "uppercase",
+              display: "block",
+              marginBottom: 6,
+            }}
+          >
+            Worship · Preaching · Ministry
+          </span>
+          <span
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              letterSpacing: "0.12em",
+              color: "rgba(255,255,255,0.6)",
+              textTransform: "uppercase",
+            }}
+          >
+            3M+ followers across platforms
+          </span>
+        </div>
         <a
           href="#about"
           style={{
@@ -192,6 +208,7 @@ export default function Hero() {
         >
           Scroll to explore ↓
         </a>
+        </div>
       </div>
     </section>
   );

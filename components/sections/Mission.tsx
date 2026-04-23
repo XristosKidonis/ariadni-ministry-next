@@ -24,7 +24,7 @@ export default function Mission() {
           className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-6"
           style={{ color: "var(--muted)" }}
         >
-          ABOUT ARIADNI
+          ABOUT THE FOUNDER
         </span>
         <RevealText
           as="h2"
@@ -39,16 +39,22 @@ export default function Mission() {
           }}
         />
         <p
-          className="text-[15px] leading-[1.75] mb-8"
+          className="text-[15px] leading-[1.75] mb-6"
           style={{ color: "var(--muted)" }}
         >
-          Ariadni Kidonis (Aria) is a speaker, preacher, worship leader, and content creator passionate about leading people into a deeper relationship with Jesus. Originally based in Los Angeles and now in Texas, she is actively involved in ministry through preaching, worship, and social media evangelism.
+          Ariadni Kidonis (known as ARIA) is a speaker, preacher, worship leader, and social media evangelist passionate about leading people into a deeper relationship with Jesus Christ. Originally based in Los Angeles and now residing in Texas, she is actively engaged in ministry through preaching, worship, and digital evangelism. She also travels nationally and internationally to minister at churches, conferences, and events, sharing the Gospel across diverse communities.
+        </p>
+        <p
+          className="text-[15px] leading-[1.75] mb-6"
+          style={{ color: "var(--muted)" }}
+        >
+          Before stepping fully into ministry, Ariadni built a multifaceted career in the music industry as an artist, DJ, producer, songwriter, and audio engineer. She is a voting member of both The Recording Academy (Grammys) and the Latin Recording Academy (Latin Grammys), and has contributed to major film and television productions including Love Is Blind, Sweet Magnolias, Dubai Bling, Deep Fake Love, Love Island, and more, with credits spanning platforms such as Netflix, HBO, FOX, Nickelodeon, Disney, MTV, LionsGate and Paramount.
         </p>
         <p
           className="text-[15px] leading-[1.75] mb-11"
           style={{ color: "var(--muted)" }}
         >
-          She preaches in both English and Spanish, reaching diverse audiences with the Gospel message. Through her music, teaching, and online presence, Ariadni shares the Gospel in a way that is both powerful and relatable, helping people encounter God personally and walk in their identity in Christ.
+          She has collaborated with a wide range of artists and achieved global chart success, including placements on Billboard R&B charts, iTunes R&B and all-genre charts, as well as international #1 rankings. She ministers in both English and Spanish, reaching a broad and diverse audience with the message of Christ. Through her preaching, music, and online presence, Ariadni communicates the Gospel in a way that is both powerful and relatable, helping people encounter God personally and walk confidently in their identity in Christ.
         </p>
         <style>{`
           .btn-meet-ariadni {
