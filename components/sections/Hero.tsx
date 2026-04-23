@@ -208,7 +208,6 @@ export default function Hero() {
         >
           Scroll to explore ↓
         </a>
-        </div>
       </div>
     </section>
   );
