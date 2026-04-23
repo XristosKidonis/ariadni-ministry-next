@@ -1,29 +1,14 @@
 "use client";
-import Image from "next/image";
-import { FadeUp } from "@/components/ui/fade-up";
 import { RevealText } from "@/components/ui/reveal-text";
 
-const episodes = [
+const sermons = [
   {
-    num: "01",
-    tag: "EPISODE 1",
-    title: "WHEN GOD FEELS SILENT",
-    date: "April 6, 2026",
-    img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=500&q=80",
+    title: "Sermon 1",
+    youtubeId: "lX6Rim1m688",
   },
   {
-    num: "02",
-    tag: "EPISODE 2",
-    title: "THE ANCHOR HOLDS",
-    date: "April 13, 2026",
-    img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=500&q=80",
-  },
-  {
-    num: "03",
-    tag: "EPISODE 3",
-    title: "RUNNING YOUR RACE",
-    date: "April 20, 2026",
-    img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80",
+    title: "Sermon 2",
+    youtubeId: "lTyHkJpz5zw",
   },
 ];
 
@@ -33,7 +18,7 @@ export default function Messages() {
       <div className="max-w-[1200px] mx-auto px-10">
         {/* Header */}
         <div
-          className="flex justify-between items-end border-b pb-8 mb-9"
+          className="flex justify-between items-end border-b pb-8 mb-12"
           style={{ borderColor: "var(--border)" }}
         >
           <div>
@@ -41,11 +26,11 @@ export default function Messages() {
               className="text-[11px] font-semibold tracking-[0.16em] uppercase block mb-3"
               style={{ color: "var(--muted)" }}
             >
-              NEW SERIES
+              HEAR FROM ARIADNI
             </span>
             <RevealText
               as="h2"
-              text="UNSHAKEABLE: FAITH IN UNCERTAIN TIMES"
+              text="SERMONS & MESSAGES"
               className="uppercase"
               style={{
                 fontFamily: "var(--font-display)",
@@ -57,83 +42,79 @@ export default function Messages() {
             />
           </div>
           <a
-            href="#messages"
+            href="https://www.youtube.com/@ariadnikidonis"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[11px] font-semibold tracking-[0.12em] uppercase border-b border-current pb-0.5 self-end transition-opacity hover:opacity-50 whitespace-nowrap"
           >
-            SEE ALL MESSAGES →
+            MORE ON YOUTUBE →
           </a>
         </div>
 
         {/* Description */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-14">
+        <p
+          className="text-[15px] leading-[1.75] max-w-[600px] mb-14"
+          style={{ color: "var(--muted)" }}
+        >
+          Watch as Ariadni shares God&apos;s Word through powerful preaching and teaching.
+          Each message is designed to draw you closer to Jesus and help you discover your
+          identity in Christ.
+        </p>
+
+        {/* Video Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {sermons.map((sermon) => (
+            <div
+              key={sermon.youtubeId}
+              className="group rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              style={{ background: "#000" }}
+            >
+              <div className="relative w-full aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${sermon.youtubeId}`}
+                  title={sermon.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6" style={{ background: "var(--text)" }}>
+                <h3
+                  className="text-[16px] font-semibold uppercase"
+                  style={{ color: "#fff", letterSpacing: "0.05em" }}
+                >
+                  {sermon.title}
+                </h3>
+                <p style={{ color: "rgba(255,255,255,0.7)", marginTop: 8, fontSize: 14 }}>
+                  Watch on YouTube
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 text-center">
           <p
-            className="text-[15px] leading-[1.75] max-w-[480px]"
+            className="text-[14px] mb-6"
             style={{ color: "var(--muted)" }}
           >
-            Join Ariadni each week as she unpacks what it means to walk by
-            faith and not by sight. A 6-part series drawing from the book of
-            Hebrews — raw, honest, and full of hope.
+            Subscribe to Ariadni&apos;s YouTube channel for new sermons, worship sessions, and more
           </p>
           <a
-            href="#messages"
-            className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 text-white transition-colors whitespace-nowrap"
+            href="https://www.youtube.com/@ariadnikidonis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-8 py-3 text-white transition-colors"
             style={{ background: "var(--black)" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "var(--dark-2)")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "var(--black)")}
           >
-            WATCH THE SERIES →
+            SUBSCRIBE ON YOUTUBE →
           </a>
-        </div>
-
-        {/* Episode cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {episodes.map((ep, i) => (
-            <FadeUp key={ep.num} delay={i * 0.1}>
-            <div className="group cursor-pointer">
-              <div
-                className="font-black leading-none mb-[-20px] relative z-0 select-none"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 80,
-                  color: "var(--border)",
-                }}
-              >
-                {ep.num}
-              </div>
-              <div className="relative z-10 overflow-hidden aspect-[4/3]">
-                <Image
-                  src={ep.img}
-                  alt={ep.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="pt-4">
-                <span
-                  className="text-[10px] font-semibold tracking-[0.14em] uppercase block mb-2"
-                  style={{ color: "var(--muted)" }}
-                >
-                  {ep.tag}
-                </span>
-                <h4
-                  className="uppercase mb-1.5"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 500,
-                    fontSize: 22,
-                    lineHeight: 1.1,
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  {ep.title}
-                </h4>
-                <p className="text-[12px]" style={{ color: "var(--muted)", letterSpacing: "0.05em" }}>
-                  {ep.date}
-                </p>
-              </div>
-            </div>
-            </FadeUp>
-          ))}
         </div>
       </div>
     </section>
