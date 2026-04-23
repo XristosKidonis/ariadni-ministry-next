@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { sendEmail, getPrayerRequestEmailContent } from '../utils/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,21 +13,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('Prayer Request Received:', {
-      name,
-      email: email || 'No email provided',
-      prayer,
-      timestamp: new Date().toISOString(),
-    });
+    // Send notification email to admin
+    try {
+      const emailContent = getPrayerRequestEmailContent(name, email, prayer);
+      await sendEmail(emailContent);
+    } catch (emailError) {
+      console.error('Failed to send email notification:', emailError);
+      // Don't fail the request if email fails - just log it
+    }
 
-    // TODO: Send email notification to Freshfirerevivalministriesinc@gmail.com
-    // TODO: Save to database
-    // For now, we're just logging and returning success
+    // TODO: Save to database (Firebase, Supabase, etc)
 
     return NextResponse.json(
       {
         success: true,
         message: 'Prayer request received. Our prayer team will intercede for you.',
+        requestId: `PR-${Date.now()}`,
         timestamp: new Date().toISOString(),
       },
       { status: 200 }

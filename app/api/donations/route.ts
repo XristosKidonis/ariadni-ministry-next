@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { sendEmail, getDonationEmailContent, getDonationConfirmationEmail } from '../utils/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,23 +13,34 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('Donation Received:', {
-      method,
-      amount,
-      email: email || 'Anonymous',
-      name: name || 'Anonymous',
-      timestamp: new Date().toISOString(),
-    });
+    const donationId = `DONATION-${Date.now()}`;
+
+    // Send notification email to admin
+    try {
+      const adminEmail = getDonationEmailContent(method, amount, name, email);
+      await sendEmail(adminEmail);
+    } catch (emailError) {
+      console.error('Failed to send admin notification:', emailError);
+    }
+
+    // Send confirmation email to donor if email provided
+    if (email) {
+      try {
+        const donorEmail = getDonationConfirmationEmail(name || 'Friend', email, amount);
+        await sendEmail(donorEmail);
+      } catch (emailError) {
+        console.error('Failed to send donor confirmation:', emailError);
+      }
+    }
 
     // TODO: Process payment through PayPal, Stripe, or your payment processor
-    // TODO: Send confirmation email to donor
-    // TODO: Send notification to Freshfirerevivalministriesinc@gmail.com
+    // TODO: Save to database (Firebase, Supabase, etc)
 
     return NextResponse.json(
       {
         success: true,
-        message: 'Donation received. Thank you for supporting Arise Ministry!',
-        donationId: `DONATION-${Date.now()}`,
+        message: 'Thank you for your generous donation!',
+        donationId,
         timestamp: new Date().toISOString(),
       },
       { status: 200 }
