@@ -50,10 +50,10 @@ export default function Newsletter() {
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3.5 text-[11px] font-semibold tracking-[0.12em] uppercase text-white transition-colors whitespace-nowrap"
-                  style={{ background: "var(--black)" }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#2A2920")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "var(--black)")}
+                  className="px-6 py-3.5 text-[11px] font-semibold tracking-[0.12em] uppercase text-white transition-opacity whitespace-nowrap"
+                  style={{ background: "var(--accent)" }}
+                  onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.opacity = "0.8")}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.opacity = "1")}
                 >
                   SUBSCRIBE →
                 </button>

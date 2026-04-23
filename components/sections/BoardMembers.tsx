@@ -40,7 +40,7 @@ export default function BoardMembers() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-stretch">
           {members.map((member) => (
             <div
               key={member.name}
@@ -52,7 +52,7 @@ export default function BoardMembers() {
               }}
             >
               {/* Image */}
-              <div className="relative aspect-[2/3] overflow-hidden bg-gray-100">
+              <div className="relative aspect-[3/4] md:aspect-[2/3] overflow-hidden bg-gray-100">
                 <Image
                   src={member.image}
                   alt={member.name}

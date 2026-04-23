@@ -71,7 +71,7 @@ export default function Footer() {
               {[
                 { icon: SocialIcons.instagram, label: "Instagram", href: "https://www.instagram.com/aria_speaks_faith/" },
                 { icon: SocialIcons.facebook,  label: "Facebook",  href: "https://www.facebook.com/AriadniKspOfficial/" },
-                { icon: SocialIcons.youtube,   label: "YouTube",   href: "https://www.youtube.com/@ariadniministries" },
+                { icon: SocialIcons.youtube,   label: "YouTube",   href: "https://www.youtube.com/@AriadniKspOfficial" },
                 { icon: SocialIcons.tiktok,    label: "TikTok",    href: "https://www.tiktok.com/@ariaksp" },
               ].map((s) => (
                 <a

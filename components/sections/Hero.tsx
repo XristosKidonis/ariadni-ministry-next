@@ -13,8 +13,21 @@ export default function Hero() {
         flexDirection: "column",
       }}
     >
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            padding: 20px !important;
+          }
+          .hero-left, .hero-right {
+            border: none !important;
+            padding: 0 !important;
+          }
+        }
+      `}</style>
       {/* Main grid */}
       <div
+        className="hero-grid"
         style={{
           flex: 1,
           width: "100%",
@@ -31,6 +44,7 @@ export default function Hero() {
       >
         {/* Left: small description */}
         <div
+          className="hero-left"
           style={{
             paddingRight: 40,
             borderRight: "1px solid rgba(255,255,255,0.07)",
@@ -106,6 +120,7 @@ export default function Hero() {
 
         {/* Right: photo card */}
         <div
+          className="hero-right"
           style={{
             paddingLeft: 40,
             borderLeft: "1px solid rgba(255,255,255,0.07)",
