@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Heart } from "lucide-react";
 
 export default function PrayerRequest() {
   const [formData, setFormData] = useState({
@@ -28,65 +29,88 @@ export default function PrayerRequest() {
   return (
     <section
       id="prayer"
-      className="py-20 border-t"
-      style={{ background: "var(--dark)", color: "var(--cream)", borderColor: "rgba(255,255,255,0.06)" }}
+      className="py-24 relative overflow-hidden"
+      style={{ background: "linear-gradient(135deg, var(--dark) 0%, #2A2920 100%)" }}
     >
-      <div className="max-w-[800px] mx-auto px-10">
-        <div className="mb-12">
-          <span
-            className="text-[11px] font-semibold tracking-[0.16em] uppercase block mb-4"
-            style={{ color: "rgba(255,255,255,0.45)" }}
-          >
-            PRAYER SUPPORT
-          </span>
+      {/* Background accent */}
+      <div
+        style={{
+          position: "absolute",
+          top: -100,
+          right: -100,
+          width: 400,
+          height: 400,
+          borderRadius: "50%",
+          background: "rgba(193, 122, 53, 0.1)",
+          filter: "blur(80px)",
+        }}
+      />
+
+      <div className="max-w-[900px] mx-auto px-10 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Heart size={24} style={{ color: "var(--accent)" }} />
+            <span
+              className="text-[11px] font-semibold tracking-[0.16em] uppercase"
+              style={{ color: "var(--accent)" }}
+            >
+              PRAYER SUPPORT
+            </span>
+            <Heart size={24} style={{ color: "var(--accent)" }} />
+          </div>
           <h2
-            className="uppercase"
+            className="uppercase mb-6"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 400,
-              fontSize: "clamp(36px,5vw,64px)",
+              fontSize: "clamp(40px,6vw,72px)",
               lineHeight: 0.97,
               letterSpacing: "0.02em",
+              color: "var(--cream)",
             }}
           >
             PRAYER REQUESTS
           </h2>
           <p
-            className="text-[15px] leading-[1.75] mt-6"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            className="text-[16px] leading-[1.8] max-w-[600px] mx-auto"
+            style={{ color: "rgba(255,255,255,0.7)" }}
           >
-            Share your prayer request with us. Our prayer team will intercede
-            for you and cover your needs before God&apos;s throne.
+            Share your prayer request with us. Our prayer team intercedes for you daily, believing God for His blessing and breakthrough in your life.
           </p>
         </div>
 
+        {/* Form */}
         {submitted ? (
           <div
-            className="p-8 text-center"
+            className="p-12 text-center rounded-lg"
             style={{
-              border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: 8,
+              border: "2px solid var(--accent)",
+              background: "rgba(193, 122, 53, 0.1)",
             }}
           >
+            <div className="mb-4 flex justify-center">
+              <Heart size={48} style={{ color: "var(--accent)" }} />
+            </div>
             <p
-              className="text-[18px] font-semibold mb-2"
+              className="text-[20px] font-semibold mb-3"
               style={{ color: "var(--cream)" }}
             >
-              Thank you for your prayer request.
+              Thank you for sharing your request.
             </p>
-            <p style={{ color: "rgba(255,255,255,0.6)" }}>
-              We will lift your request up in prayer.
+            <p style={{ color: "rgba(255,255,255,0.7)" }}>
+              We are lifting your prayer request to the throne of God.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="max-w-[600px] mx-auto">
             <div className="space-y-6">
               {/* Name */}
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-[12px] font-semibold tracking-[0.1em] uppercase mb-3"
-                  style={{ color: "rgba(255,255,255,0.7)" }}
+                  className="block text-[12px] font-semibold tracking-[0.12em] uppercase mb-3"
+                  style={{ color: "var(--cream)" }}
                 >
                   Your Name *
                 </label>
@@ -97,14 +121,14 @@ export default function PrayerRequest() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-transparent border-b text-white"
+                  className="w-full px-4 py-3 bg-transparent border-b-2 text-white placeholder-gray-400"
                   style={{
                     borderColor: "rgba(255,255,255,0.2)",
                     color: "var(--cream)",
                   }}
                   placeholder="Your name"
                   onFocus={(e) =>
-                    (e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)")
+                    (e.currentTarget.style.borderColor = "var(--accent)")
                   }
                   onBlur={(e) =>
                     (e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)")
@@ -116,8 +140,8 @@ export default function PrayerRequest() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-[12px] font-semibold tracking-[0.1em] uppercase mb-3"
-                  style={{ color: "rgba(255,255,255,0.7)" }}
+                  className="block text-[12px] font-semibold tracking-[0.12em] uppercase mb-3"
+                  style={{ color: "var(--cream)" }}
                 >
                   Email (Optional)
                 </label>
@@ -127,14 +151,14 @@ export default function PrayerRequest() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-transparent border-b text-white"
+                  className="w-full px-4 py-3 bg-transparent border-b-2 text-white placeholder-gray-400"
                   style={{
                     borderColor: "rgba(255,255,255,0.2)",
                     color: "var(--cream)",
                   }}
                   placeholder="your@email.com"
                   onFocus={(e) =>
-                    (e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)")
+                    (e.currentTarget.style.borderColor = "var(--accent)")
                   }
                   onBlur={(e) =>
                     (e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)")
@@ -146,10 +170,10 @@ export default function PrayerRequest() {
               <div>
                 <label
                   htmlFor="prayer"
-                  className="block text-[12px] font-semibold tracking-[0.1em] uppercase mb-3"
-                  style={{ color: "rgba(255,255,255,0.7)" }}
+                  className="block text-[12px] font-semibold tracking-[0.12em] uppercase mb-3"
+                  style={{ color: "var(--cream)" }}
                 >
-                  Prayer Request *
+                  Your Prayer Request *
                 </label>
                 <textarea
                   id="prayer"
@@ -157,15 +181,15 @@ export default function PrayerRequest() {
                   value={formData.prayer}
                   onChange={handleChange}
                   required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-transparent border text-white resize-none"
+                  rows={5}
+                  className="w-full px-4 py-3 bg-transparent border-2 text-white resize-none placeholder-gray-400 rounded-lg"
                   style={{
                     borderColor: "rgba(255,255,255,0.2)",
                     color: "var(--cream)",
                   }}
-                  placeholder="Share your prayer request..."
+                  placeholder="Share what's on your heart..."
                   onFocus={(e) =>
-                    (e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)")
+                    (e.currentTarget.style.borderColor = "var(--accent)")
                   }
                   onBlur={(e) =>
                     (e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)")
@@ -174,21 +198,26 @@ export default function PrayerRequest() {
               </div>
 
               {/* Submit Button */}
-              <div className="pt-4">
+              <div className="pt-2 flex justify-center">
                 <button
                   type="submit"
-                  className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-8 py-3 text-black transition-colors"
-                  style={{ background: "var(--cream)" }}
-                  onMouseEnter={(e) =>
-                    ((e.currentTarget as HTMLButtonElement).style.background =
-                      "var(--cream-2)")
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.currentTarget as HTMLButtonElement).style.background =
-                      "var(--cream)")
-                  }
+                  className="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.12em] uppercase px-10 py-4 transition-all duration-300"
+                  style={{
+                    background: "var(--accent)",
+                    color: "#fff",
+                    borderRadius: 4,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.transform =
+                      "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.transform =
+                      "scale(1)";
+                  }}
                 >
-                  SUBMIT PRAYER REQUEST →
+                  <Heart size={16} />
+                  SUBMIT REQUEST
                 </button>
               </div>
             </div>

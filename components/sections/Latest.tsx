@@ -72,7 +72,8 @@ export default function Latest() {
                 alt={cards[0].title}
                 width={600}
                 height={450}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.04]"
+                className="w-full h-full transition-transform duration-500 hover:scale-[1.04]"
+                style={{ objectFit: "cover", objectPosition: "center 20%" }}
               />
             </div>
           </div>

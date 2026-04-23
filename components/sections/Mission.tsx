@@ -12,7 +12,8 @@ export default function Mission() {
           alt="Ariadni ministry moment"
           width={900}
           height={700}
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.025]"
+          className="w-full h-full transition-transform duration-700 hover:scale-[1.025]"
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
         />
       </div>
       <div
@@ -23,11 +24,11 @@ export default function Mission() {
           className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-6"
           style={{ color: "var(--muted)" }}
         >
-          WHO WE ARE
+          ABOUT ARIADNI
         </span>
         <RevealText
           as="h2"
-          text="EVERY PERSON DESERVES TO ENCOUNTER THE LIVING GOD."
+          text="SPEAKER, PREACHER, WORSHIP LEADER"
           className="uppercase mb-7"
           style={{
             fontFamily: "var(--font-display)",
@@ -38,13 +39,16 @@ export default function Mission() {
           }}
         />
         <p
-          className="text-[15px] leading-[1.75] mb-11 max-w-[420px]"
+          className="text-[15px] leading-[1.75] mb-8"
           style={{ color: "var(--muted)" }}
         >
-          We are a team of worshippers, intercessors, and communicators. We
-          believe transformation happens when people step into God&apos;s presence
-          — not just in church, but in every area of life. Arise exists to
-          create those encounters.
+          Ariadni Kidonis (Aria) is a speaker, preacher, worship leader, and content creator passionate about leading people into a deeper relationship with Jesus. Originally based in Los Angeles and now in Texas, she is actively involved in ministry through preaching, worship, and social media evangelism.
+        </p>
+        <p
+          className="text-[15px] leading-[1.75] mb-11"
+          style={{ color: "var(--muted)" }}
+        >
+          She preaches in both English and Spanish, reaching diverse audiences with the Gospel message. Through her music, teaching, and online presence, Ariadni shares the Gospel in a way that is both powerful and relatable, helping people encounter God personally and walk in their identity in Christ.
         </p>
         <a
           href="#about"
