@@ -42,7 +42,7 @@ export default function Messages() {
             />
           </div>
           <a
-            href="https://www.youtube.com/@ariadnikidonis"
+            href="https://www.youtube.com/@AriadniKspOfficial"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[11px] font-semibold tracking-[0.12em] uppercase border-b border-current pb-0.5 self-end transition-opacity hover:opacity-50 whitespace-nowrap"
@@ -105,13 +105,13 @@ export default function Messages() {
             Subscribe to Ariadni&apos;s YouTube channel for new sermons, worship sessions, and more
           </p>
           <a
-            href="https://www.youtube.com/@ariadnikidonis"
+            href="https://www.youtube.com/@AriadniKspOfficial"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-8 py-3 text-white transition-colors"
-            style={{ background: "var(--black)" }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "var(--dark-2)")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "var(--black)")}
+            className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-8 py-3 text-white transition-opacity"
+            style={{ background: "var(--accent)" }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "0.8")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "1")}
           >
             SUBSCRIBE ON YOUTUBE →
           </a>

@@ -106,7 +106,7 @@ export default function Give() {
                     className="text-[12px] mt-3"
                     style={{ color: "rgba(255,255,255,0.5)" }}
                   >
-                    Please include a note: "Donation to Arise Ministry"
+                    Please include a note: "Donation to Fresh Fire Revival Ministries"
                   </p>
                 </div>
               )}

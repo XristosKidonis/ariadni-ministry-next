@@ -26,8 +26,8 @@ export default function Nav() {
       >
         <a href="#" style={{ display: "flex", alignItems: "center", height: "100%" }}>
           <Image
-            src="/logo.png"
-            alt="Arise Ministry"
+            src="/logo-white.png"
+            alt="Fresh Fire Revival Ministries"
             width={40}
             height={40}
           />

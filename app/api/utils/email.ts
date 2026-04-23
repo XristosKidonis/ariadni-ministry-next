@@ -27,7 +27,7 @@ export async function sendEmail(params: EmailParams) {
     const resendClient = getResend();
 
     const response = await resendClient.emails.send({
-      from: `Arise Ministry <noreply@arise.ministry>`,
+      from: `Fresh Fire Revival Ministries <noreply@arise.ministry>`,
       to: params.to,
       subject: params.subject,
       html: params.html,
@@ -86,7 +86,7 @@ export function getDonationEmailContent(
       <p><strong>Donor Name:</strong> ${name || "Anonymous"}</p>
       <p><strong>Donor Email:</strong> ${email || "Not provided"}</p>
       <p><small>Received at: ${new Date().toLocaleString()}</small></p>
-      <p>Thank you for supporting Arise Ministry!</p>
+      <p>Thank you for supporting Fresh Fire Revival Ministries!</p>
     `,
     text: `New Donation: ${amount} via ${method}`,
   };
@@ -99,15 +99,15 @@ export function getDonationConfirmationEmail(
 ) {
   return {
     to: email,
-    subject: "Thank you for your donation to Arise Ministry",
+    subject: "Thank you for your donation to Fresh Fire Revival Ministries",
     html: `
       <h2>Thank you for your generosity!</h2>
       <p>Dear ${name},</p>
-      <p>We have received your donation of <strong>${amount}</strong> to Arise Ministry.</p>
+      <p>We have received your donation of <strong>${amount}</strong> to Fresh Fire Revival Ministries.</p>
       <p>Your gift will help us reach more people with the Gospel through worship, preaching, and ministry.</p>
       <p>We will keep you updated on how your donation is making a difference.</p>
-      <p>In Christ,<br/>The Arise Ministry Team</p>
+      <p>In Christ,<br/>The Fresh Fire Revival Ministries Team</p>
     `,
-    text: `Thank you for your donation of ${amount} to Arise Ministry.`,
+    text: `Thank you for your donation of ${amount} to Fresh Fire Revival Ministries.`,
   };
 }

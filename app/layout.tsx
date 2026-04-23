@@ -19,7 +19,7 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "Arise Ministry — Ariadni",
+  title: "Fresh Fire Revival Ministries — Ariadni",
   description: "Bringing heaven to earth, one heart at a time.",
 };
 

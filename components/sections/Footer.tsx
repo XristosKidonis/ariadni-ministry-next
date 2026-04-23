@@ -62,10 +62,10 @@ export default function Footer() {
               className="tracking-[0.14em] mb-4"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: 28 }}
             >
-              ARISE
+              FRESH FIRE
             </div>
             <p className="text-[14px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Bringing heaven to earth,<br />one heart at a time.
+              Revival Ministries<br />with Ariadni Kidonis
             </p>
             <div className="flex gap-4 mt-6">
               {[
@@ -122,7 +122,7 @@ export default function Footer() {
           className="flex flex-col sm:flex-row justify-between gap-2 text-[11px] tracking-[0.05em]"
           style={{ color: "rgba(255,255,255,0.3)" }}
         >
-          <p>© 2026 Arise Ministry. All rights reserved.</p>
+          <p>© 2026 Fresh Fire Revival Ministries. All rights reserved.</p>
           <p>Made with love &amp; faith.</p>
         </div>
       </div>
