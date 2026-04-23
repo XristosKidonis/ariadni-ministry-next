@@ -40,19 +40,14 @@ export default function BoardMembers() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {members.map((member) => (
             <div
               key={member.name}
-              className="flex flex-col"
-              style={{
-                border: "1px solid var(--border)",
-                padding: 0,
-                overflow: "hidden",
-              }}
+              className="flex flex-col md:flex-row gap-6 items-start"
             >
-              {/* Image */}
-              <div className="relative aspect-[3/4] md:aspect-[2/3] overflow-hidden bg-gray-100">
+              {/* Small Icon Photo */}
+              <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -62,15 +57,15 @@ export default function BoardMembers() {
               </div>
 
               {/* Content */}
-              <div className="p-8 flex flex-col flex-1">
+              <div className="flex flex-col flex-1">
                 <h3
-                  className="uppercase mb-1 text-xl font-bold"
+                  className="uppercase mb-1 font-bold text-lg"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {member.name}
                 </h3>
                 <p
-                  className="text-[12px] font-semibold tracking-[0.1em] uppercase mb-6"
+                  className="text-[12px] font-semibold tracking-[0.1em] uppercase mb-3"
                   style={{ color: "var(--accent)" }}
                 >
                   {member.role}
