@@ -34,7 +34,13 @@ export async function sendEmail(params: EmailParams) {
       text: params.text,
     });
 
-    return { success: true, messageId: response.id };
+    if (response.error) {
+      console.error("Email send error:", response.error);
+      return { success: false, error: response.error };
+    }
+
+    const messageId = response.data?.id || `msg-${Date.now()}`;
+    return { success: true, messageId };
   } catch (error) {
     console.error("Email send error:", error);
     // Don't throw - allow request to continue even if email fails
