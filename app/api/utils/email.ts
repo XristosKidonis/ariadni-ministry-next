@@ -1,7 +1,19 @@
-// Email utility for sending notifications
-// Currently logs to console, ready for email provider integration (Resend, SendGrid, Nodemailer, etc)
+import { Resend } from 'resend';
 
 const ADMIN_EMAIL = "Freshfirerevivalministriesinc@gmail.com";
+
+let resend: Resend | null = null;
+
+function getResend(): Resend {
+  if (!resend) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error('RESEND_API_KEY environment variable is not set');
+    }
+    resend = new Resend(apiKey);
+  }
+  return resend;
+}
 
 interface EmailParams {
   to: string;
@@ -12,24 +24,21 @@ interface EmailParams {
 
 export async function sendEmail(params: EmailParams) {
   try {
-    // TODO: Replace with actual email provider
-    // Options:
-    // 1. Resend (https://resend.com) - Modern email for developers
-    // 2. SendGrid (https://sendgrid.com) - Industry standard
-    // 3. Nodemailer (https://nodemailer.com) - Self-hosted SMTP
-    // 4. AWS SES, Mailgun, etc.
+    const resendClient = getResend();
 
-    console.log("📧 Email would be sent:");
-    console.log(`To: ${params.to}`);
-    console.log(`Subject: ${params.subject}`);
-    console.log(`Body: ${params.html}`);
+    const response = await resendClient.emails.send({
+      from: `Arise Ministry <noreply@arise.ministry>`,
+      to: params.to,
+      subject: params.subject,
+      html: params.html,
+      text: params.text,
+    });
 
-    // For now, log to console instead of actually sending
-    // This allows you to see what would be sent
-    return { success: true, messageId: `msg-${Date.now()}` };
+    return { success: true, messageId: response.id };
   } catch (error) {
     console.error("Email send error:", error);
-    throw error;
+    // Don't throw - allow request to continue even if email fails
+    return { success: false, error: String(error) };
   }
 }
 

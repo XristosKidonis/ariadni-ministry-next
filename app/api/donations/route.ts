@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendEmail, getDonationEmailContent, getDonationConfirmationEmail } from '../utils/email';
+import { saveDonation } from '../utils/firebase';
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,6 +15,7 @@ export async function POST(request: NextRequest) {
     }
 
     const donationId = `DONATION-${Date.now()}`;
+    const timestamp = new Date().toISOString();
 
     // Send notification email to admin
     try {
@@ -33,15 +35,29 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Save to Firebase
+    try {
+      await saveDonation({
+        method,
+        amount,
+        email,
+        name,
+        donationId,
+        timestamp,
+      });
+    } catch (firebaseError) {
+      console.error('Failed to save to Firebase:', firebaseError);
+      // Don't fail the request if Firebase fails
+    }
+
     // TODO: Process payment through PayPal, Stripe, or your payment processor
-    // TODO: Save to database (Firebase, Supabase, etc)
 
     return NextResponse.json(
       {
         success: true,
         message: 'Thank you for your generous donation!',
         donationId,
-        timestamp: new Date().toISOString(),
+        timestamp,
       },
       { status: 200 }
     );
