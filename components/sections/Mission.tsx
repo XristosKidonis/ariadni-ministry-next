@@ -50,18 +50,21 @@ export default function Mission() {
         >
           She preaches in both English and Spanish, reaching diverse audiences with the Gospel message. Through her music, teaching, and online presence, Ariadni shares the Gospel in a way that is both powerful and relatable, helping people encounter God personally and walk in their identity in Christ.
         </p>
+        <style>{`
+          .btn-meet-ariadni {
+            border: 1.5px solid var(--text);
+            color: var(--text);
+            background: transparent;
+            transition: all 0.3s;
+          }
+          .btn-meet-ariadni:hover {
+            background: var(--text);
+            color: #fff;
+          }
+        `}</style>
         <a
           href="#about"
-          className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 border-[1.5px] transition-colors self-start"
-          style={{ borderColor: "var(--text)", color: "var(--text)" }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.background = "var(--text)";
-            (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-            (e.currentTarget as HTMLAnchorElement).style.color = "var(--text)";
-          }}
+          className="btn-meet-ariadni inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 self-start"
         >
           MEET ARIADNI →
         </a>

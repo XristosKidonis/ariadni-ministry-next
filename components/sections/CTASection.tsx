@@ -36,12 +36,19 @@ export default function CTASection() {
               community across cities and nations. Join a growing family of
               believers hungry for more of God.
             </p>
+            <style>{`
+              .btn-explore {
+                background: #fff;
+                color: black;
+                transition: background 0.3s;
+              }
+              .btn-explore:hover {
+                background: var(--cream);
+              }
+            `}</style>
             <a
               href="#"
-              className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 text-black transition-colors"
-              style={{ background: "#fff" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "var(--cream)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "#fff")}
+              className="btn-explore inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3"
             >
               EXPLORE OUR MINISTRY →
             </a>
