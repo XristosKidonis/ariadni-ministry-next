@@ -47,7 +47,7 @@ export default function BoardMembers() {
               className="flex flex-col md:flex-row gap-6 items-start"
             >
               {/* Small Icon Photo */}
-              <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
+              <div className="relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0 overflow-hidden rounded-full bg-gray-100">
                 <Image
                   src={member.image}
                   alt={member.name}

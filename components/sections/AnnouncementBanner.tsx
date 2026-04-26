@@ -13,7 +13,7 @@ export default function AnnouncementBanner() {
     >
       <span>
         ✦ Join us live every Sunday at 7PM EST —{" "}
-        <a href="#events" className="font-semibold" style={{ color: "var(--accent)" }}>
+        <a href="https://www.youtube.com/@AriadniKspOfficial" target="_blank" rel="noopener noreferrer" className="font-semibold" style={{ color: "var(--accent)" }}>
           Watch on YouTube →
         </a>
       </span>

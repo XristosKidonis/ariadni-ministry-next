@@ -22,10 +22,10 @@ const cols = [
   {
     title: "MINISTRY",
     links: [
-      { label: "About Ariadni", href: "#about" },
-      { label: "Messages",      href: "#messages" },
-      { label: "Worship",       href: "#worship" },
-      { label: "Events",        href: "#events" },
+      { label: "About the Founder", href: "#about" },
+      { label: "Messages",         href: "#messages" },
+      { label: "Worship",          href: "#worship" },
+      { label: "Vision",           href: "#vision" },
     ],
   },
   {

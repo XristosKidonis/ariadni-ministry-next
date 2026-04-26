@@ -20,7 +20,7 @@ export function AnimatedHeroTitle({
   useEffect(() => {
     const id = setTimeout(() => {
       setCurrent((prev) => (prev + 1) % words.length);
-    }, 3500);
+    }, 1500);
     return () => clearTimeout(id);
   }, [current, words.length]);
 

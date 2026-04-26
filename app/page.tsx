@@ -9,6 +9,7 @@ import Messages          from "@/components/sections/Messages";
 import Vision            from "@/components/sections/Vision";
 import CTASection        from "@/components/sections/CTASection";
 import InviteAriadni     from "@/components/sections/InviteAriadni";
+import Testimonials      from "@/components/sections/Testimonials";
 import Give              from "@/components/sections/Give";
 import PrayerRequest     from "@/components/sections/PrayerRequest";
 import Newsletter        from "@/components/sections/Newsletter";
@@ -36,6 +37,7 @@ export default function Home() {
         <Vision />
         <CTASection />
         <InviteAriadni />
+        <Testimonials />
         <Give />
         <PrayerRequest />
         <Newsletter />

@@ -1,6 +1,6 @@
 import { sendEmail } from "@/app/api/utils/email";
 
-const ADMIN_EMAIL = "Freshfirerevivalministriesinc@gmail.com";
+const ADMIN_EMAIL = "freshrevivalministriesinc@gmail.com";
 
 interface EventInquiry {
   name: string;
