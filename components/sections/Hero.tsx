@@ -17,15 +17,23 @@ export default function Hero() {
         @media (max-width: 768px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
-            padding: 40px 20px !important;
+            gap: 32px !important;
+            padding: 32px 20px 24px !important;
+            min-height: unset !important;
           }
           .hero-text, .hero-image {
             border: none !important;
             padding: 0 !important;
           }
-          .hero-image img {
-            height: 400px !important;
+          .hero-image-container {
+            height: 420px !important;
+            max-width: 100% !important;
+          }
+          .hero-image-container img {
+            object-position: center 15% !important;
+          }
+          .hero-bottom-bar {
+            padding: 14px 20px !important;
           }
         }
       `}</style>
@@ -132,6 +140,7 @@ export default function Hero() {
           }}
         >
           <div
+            className="hero-image-container"
             style={{
               borderRadius: 20,
               overflow: "hidden",
@@ -195,6 +204,7 @@ export default function Hero() {
 
       {/* Bottom bar */}
       <div
+        className="hero-bottom-bar"
         style={{
           borderTop: "1px solid rgba(255,255,255,0.07)",
           padding: "18px 40px",

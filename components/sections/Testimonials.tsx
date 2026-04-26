@@ -61,7 +61,7 @@ export default function Testimonials() {
       className="py-24 border-t"
       style={{ background: "var(--dark)", borderColor: "rgba(255,255,255,0.07)" }}
     >
-      <div className="max-w-[900px] mx-auto px-10 text-center">
+      <div className="max-w-[900px] mx-auto px-6 md:px-10 text-center">
         <span
           className="text-[11px] font-semibold tracking-[0.16em] uppercase block mb-4"
           style={{ color: "rgba(255,255,255,0.35)" }}
