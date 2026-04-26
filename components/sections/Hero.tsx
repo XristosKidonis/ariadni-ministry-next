@@ -5,6 +5,7 @@ import { AnimatedHeroTitle } from "@/components/ui/animated-hero";
 export default function Hero() {
   return (
     <section
+      className="hero-section"
       style={{
         background: "var(--dark)",
         color: "var(--cream)",
@@ -15,18 +16,24 @@ export default function Hero() {
     >
       <style>{`
         @media (max-width: 768px) {
+          .hero-section {
+            min-height: unset !important;
+          }
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 32px !important;
-            padding: 32px 20px 24px !important;
+            gap: 28px !important;
+            padding: 28px 20px 24px !important;
             min-height: unset !important;
           }
           .hero-text, .hero-image {
             border: none !important;
             padding: 0 !important;
           }
+          .hero-image {
+            align-items: center !important;
+          }
           .hero-image-container {
-            height: 420px !important;
+            height: 400px !important;
             max-width: 100% !important;
           }
           .hero-image-container img {
