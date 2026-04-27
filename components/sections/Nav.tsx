@@ -51,7 +51,7 @@ export default function Nav() {
         className="sticky top-0 z-40 flex items-center justify-between px-10 border-b"
         style={{
           background: "var(--dark)",
-          height: 60,
+          height: 80,
           borderColor: "rgba(255,255,255,0.06)",
         }}
       >
@@ -59,9 +59,9 @@ export default function Nav() {
           <Image
             src="/logo-white.png"
             alt="Fresh Fire Revival Ministries"
-            width={120}
-            height={120}
-            style={{ maxHeight: "100%", width: "auto" }}
+            width={220}
+            height={220}
+            style={{ height: 70, width: "auto" }}
           />
         </a>
 
