@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -56,12 +55,11 @@ export default function Nav() {
         }}
       >
         <a href="#" style={{ display: "flex", alignItems: "center", height: "100%" }}>
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo-white.png"
             alt="Fresh Fire Revival Ministries"
-            width={220}
-            height={220}
-            style={{ height: 70, width: "auto" }}
+            style={{ height: 68, width: "auto" }}
           />
         </a>
 
