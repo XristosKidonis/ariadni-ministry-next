@@ -50,7 +50,7 @@ export default function Nav() {
         className="sticky top-0 z-40 flex items-center justify-between px-10 border-b"
         style={{
           background: "var(--dark)",
-          height: 80,
+          height: 120,
           borderColor: "rgba(255,255,255,0.06)",
         }}
       >
@@ -59,7 +59,7 @@ export default function Nav() {
           <img
             src="/logo-ffrm.png"
             alt="Fresh Fire Revival Ministries"
-            style={{ height: 76, width: "auto" }}
+            style={{ height: 116, width: "auto" }}
           />
         </a>
 
