@@ -57,7 +57,7 @@ export default function Nav() {
         <a href="#" style={{ display: "flex", alignItems: "center", height: "100%" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo-white.png"
+            src="/logo-ffrm.png"
             alt="Fresh Fire Revival Ministries"
             style={{ height: 68, width: "auto" }}
           />
