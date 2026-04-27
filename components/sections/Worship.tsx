@@ -32,7 +32,7 @@ export default function Worship() {
               WORSHIP
             </h2>
             <a
-              href="https://open.spotify.com/artist/ariadni"
+              href="https://open.spotify.com/artist/5vDoptnf7326tAL5vcc6l2"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[11px] font-semibold tracking-[0.12em] uppercase border-b border-current pb-0.5 self-end transition-opacity hover:opacity-50"
