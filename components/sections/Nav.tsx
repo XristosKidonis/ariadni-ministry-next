@@ -59,7 +59,7 @@ export default function Nav() {
           <img
             src="/logo-ffrm.png"
             alt="Fresh Fire Revival Ministries"
-            style={{ height: 68, width: "auto" }}
+            style={{ height: 76, width: "auto" }}
           />
         </a>
 
