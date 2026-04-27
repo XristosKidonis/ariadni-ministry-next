@@ -61,9 +61,10 @@ export default function Give() {
                 className="text-[15px] leading-[1.75] mb-10"
                 style={{ color: "var(--muted)" }}
               >
-                Every gift enables Ariadni to travel, produce worship content,
-                and reach more people with the Gospel. 100% of donations go
-                directly to ministry operations.
+                Every seed you sow carries eternal weight. Your generosity
+                empowers Ariadni to travel, produce worship, and bring the
+                Gospel to cities and nations. 100% of your gift goes directly
+                to Kingdom work.
               </p>
               <div className="flex gap-4 pt-2 flex-wrap">
                 <a

@@ -59,6 +59,7 @@ export default function InviteAriadni() {
 
   return (
     <section
+      id="invite"
       className="py-20 border-t border-b"
       style={{ borderColor: "var(--border)", background: "var(--cream)" }}
     >
@@ -106,9 +107,10 @@ export default function InviteAriadni() {
           <div>
             <div
               style={{
-                padding: 40,
-                background: "#fff",
-                borderRadius: 10,
+                padding: "40px 44px",
+                background: "linear-gradient(135deg, #fff 0%, #fdf8f4 100%)",
+                borderRadius: 12,
+                borderLeft: "3px solid var(--accent)",
               }}
             >
               <span
@@ -116,29 +118,40 @@ export default function InviteAriadni() {
                   display: "block",
                   fontSize: 11,
                   fontWeight: 600,
-                  letterSpacing: "0.16em",
+                  letterSpacing: "0.18em",
                   textTransform: "uppercase",
-                  color: "var(--muted)",
-                  marginBottom: 16,
+                  color: "var(--accent)",
+                  marginBottom: 24,
                 }}
               >
-                WHAT WE OFFER
+                HOW WE MINISTER
               </span>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: 0,
-                  fontSize: 15,
-                  lineHeight: 1.85,
-                  color: "var(--muted)",
-                }}
-              >
-                <li style={{ marginBottom: 12 }}>✓ Worship Leading & Music</li>
-                <li style={{ marginBottom: 12 }}>✓ Preaching & Bible Teaching</li>
-                <li style={{ marginBottom: 12 }}>✓ Prayer & Intercession</li>
-                <li style={{ marginBottom: 12 }}>✓ Prophetic Ministry</li>
-                <li style={{ marginBottom: 0 }}>✓ Spiritual Mentoring</li>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                {[
+                  "Worship Leading & Anointed Music",
+                  "Preaching & Spirit-Led Teaching",
+                  "Prayer & Intercession Ministry",
+                  "Prophetic & Healing Ministry",
+                  "Mentoring & Discipleship",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 14,
+                      fontSize: 15,
+                      lineHeight: 1.6,
+                      color: "var(--muted)",
+                      paddingBottom: i < 4 ? 16 : 0,
+                      borderBottom: i < 4 ? "1px solid rgba(0,0,0,0.06)" : "none",
+                      marginBottom: i < 4 ? 16 : 0,
+                    }}
+                  >
+                    <span style={{ color: "var(--accent)", fontSize: 18, flexShrink: 0 }}>✦</span>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

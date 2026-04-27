@@ -12,7 +12,7 @@ export default function AnnouncementBanner() {
       style={{ background: "var(--dark)", color: "var(--cream)" }}
     >
       <span>
-        ✦ Join us live every Sunday at 7PM EST —{" "}
+        ✦ Fresh Fire Revival Ministries —{" "}
         <a href="https://www.youtube.com/@AriadniKspOfficial" target="_blank" rel="noopener noreferrer" className="font-semibold" style={{ color: "var(--accent)" }}>
           Watch on YouTube →
         </a>

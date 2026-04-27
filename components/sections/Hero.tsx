@@ -130,8 +130,8 @@ export default function Hero() {
             }}
           >
             Ariadni is a worship leader and minister bringing the presence of
-            God to cities and nations through worship, preaching, and prophetic
-            ministry.
+            God to cities and nations through worship, preaching, and a
+            Spirit-led ministry.
           </p>
         </div>
 

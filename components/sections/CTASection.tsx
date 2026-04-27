@@ -24,7 +24,7 @@ export default function CTASection() {
                 marginTop: 12,
               }}
             >
-              SEE HOW GOD IS MOVING THROUGH ARISE.
+              SEE HOW GOD IS MOVING THROUGH FRESH FIRE.
             </h2>
           </div>
           <div>
@@ -32,9 +32,9 @@ export default function CTASection() {
               className="text-[15px] leading-[1.75] mb-9"
               style={{ color: "rgba(255,255,255,0.6)" }}
             >
-              We create worship experiences, preach the Word, and build
-              community across cities and nations. Join a growing family of
-              believers hungry for more of God.
+              We carry worship experiences, preach the Word with power, and build
+              Spirit-filled community across cities and nations. Join a growing
+              family of believers hungry for more of God.
             </p>
             <style>{`
               .btn-explore {
@@ -47,7 +47,7 @@ export default function CTASection() {
               }
             `}</style>
             <a
-              href="#"
+              href="#about"
               className="btn-explore inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3"
             >
               EXPLORE OUR MINISTRY →

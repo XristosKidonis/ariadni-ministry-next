@@ -42,8 +42,8 @@ export default function Vision() {
             className="uppercase"
             style={{
               fontFamily: "var(--font-display)",
-              fontWeight: 400,
-              fontSize: "clamp(36px,5vw,56px)",
+              fontWeight: 700,
+              fontSize: "clamp(42px,6vw,72px)",
               letterSpacing: "0.03em",
               marginBottom: 40,
             }}
@@ -57,27 +57,27 @@ export default function Vision() {
             <div key={idx} className="flex flex-col">
               <div
                 style={{
-                  width: 4,
-                  height: 4,
+                  width: 5,
+                  height: 5,
                   borderRadius: "50%",
                   background: "var(--accent)",
-                  marginBottom: 16,
+                  marginBottom: 18,
                 }}
               />
               <h3
                 className="uppercase mb-4"
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontWeight: 500,
-                  fontSize: 20,
+                  fontWeight: 800,
+                  fontSize: "clamp(18px, 2.2vw, 26px)",
                   letterSpacing: "0.02em",
                 }}
               >
                 {vision.title}
               </h3>
               <p
-                className="text-[15px] leading-[1.75]"
-                style={{ color: "var(--muted)" }}
+                className="leading-[1.8]"
+                style={{ color: "var(--muted)", fontSize: 16, fontWeight: 500 }}
               >
                 {vision.description}
               </p>
@@ -90,14 +90,20 @@ export default function Vision() {
           style={{ borderColor: "var(--border)" }}
         >
           <p
-            className="text-[15px] leading-[1.75] mb-8"
-            style={{ color: "var(--muted)", maxWidth: 600, margin: "0 auto 32px" }}
+            style={{
+              fontSize: 17,
+              lineHeight: 1.8,
+              color: "var(--muted)",
+              fontWeight: 500,
+              maxWidth: 600,
+              margin: "0 auto 36px",
+            }}
           >
-            Join us in this movement. Whether through worship, prayer, giving, or service, there's a place for you in what God is doing through Arise.
+            Join us in this movement. Whether through worship, prayer, giving, or service — there is a place for you in what God is doing through Fresh Fire Revival Ministries.
           </p>
           <a
             href="#give"
-            className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3"
+            className="inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-8 py-4"
             style={{
               background: "var(--accent)",
               color: "#fff",

@@ -69,7 +69,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4 mt-6">
               {[
-                { icon: SocialIcons.instagram, label: "Instagram", href: "https://www.instagram.com/aria_speaks_faith/" },
+                { icon: SocialIcons.instagram, label: "Instagram", href: "https://www.instagram.com/ariadniksp/" },
                 { icon: SocialIcons.facebook,  label: "Facebook",  href: "https://www.facebook.com/AriadniKspOfficial/" },
                 { icon: SocialIcons.youtube,   label: "YouTube",   href: "https://www.youtube.com/@AriadniKspOfficial" },
                 { icon: SocialIcons.tiktok,    label: "TikTok",    href: "https://www.tiktok.com/@ariaksp" },

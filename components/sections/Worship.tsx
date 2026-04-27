@@ -56,9 +56,10 @@ export default function Worship() {
             className="text-[15px] leading-[1.75] mb-6"
             style={{ color: "var(--muted)", maxWidth: 560 }}
           >
-            Arise Worship creates original songs and curates live worship
-            experiences that usher people into God&apos;s presence. Each album
-            is crafted to deepen your encounter with God through music and prayer.
+            Fresh Fire Revival Ministries creates original songs and curates
+            live worship experiences that usher people into God&apos;s presence.
+            Each album is crafted to deepen your encounter with God through
+            music and prayer.
           </p>
         </div>
 

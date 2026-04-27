@@ -57,22 +57,20 @@ export default function Mission() {
           She has collaborated with a wide range of artists and achieved global chart success, including placements on Billboard R&B charts, iTunes R&B and all-genre charts, as well as international #1 rankings. She ministers in both English and Spanish, reaching a broad and diverse audience with the message of Christ. Through her preaching, music, and online presence, Ariadni communicates the Gospel in a way that is both powerful and relatable, helping people encounter God personally and walk confidently in their identity in Christ.
         </p>
         <style>{`
-          .btn-meet-ariadni {
-            border: 1.5px solid var(--text);
-            color: var(--text);
-            background: transparent;
-            transition: all 0.3s;
-          }
-          .btn-meet-ariadni:hover {
-            background: var(--text);
+          .btn-invite-cta {
+            background: var(--accent);
             color: #fff;
+            transition: opacity 0.3s;
+          }
+          .btn-invite-cta:hover {
+            opacity: 0.85;
           }
         `}</style>
         <a
-          href="#about"
-          className="btn-meet-ariadni inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 self-start"
+          href="#invite"
+          className="btn-invite-cta inline-flex items-center text-[11px] font-semibold tracking-[0.12em] uppercase px-6 py-3 self-start"
         >
-          MEET ARIADNI →
+          INVITE ARIADNI TO YOUR NEXT EVENT →
         </a>
       </div>
     </section>
