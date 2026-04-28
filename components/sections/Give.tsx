@@ -114,11 +114,11 @@ export default function Give() {
             </div>
             <div className="aspect-[4/3] overflow-hidden">
               <Image
-                src="/ariadni/rc3.jpg"
+                src="/ariadni/aria-give.jpg"
                 alt="Ariadni ministry"
                 width={800}
                 height={600}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]" style={{ objectPosition: "center 15%" }}
               />
             </div>
           </div>

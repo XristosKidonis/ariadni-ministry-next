@@ -24,7 +24,7 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee
-          items={["WORSHIP", "PRAYER", "COMMUNITY", "ARISE", "HEAVEN TO EARTH", "FAITH", "PRESENCE"]}
+          items={["WORSHIP", "PRAYER", "COMMUNITY", "HEAVEN TO EARTH", "FAITH", "PRESENCE"]}
           speed={35}
           className="py-5 border-y text-[11px] font-semibold tracking-[0.18em]"
           style={{ borderColor: "var(--border)", color: "var(--muted)" }}

@@ -15,29 +15,40 @@ export default function Hero() {
       }}
     >
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .hero-section {
             min-height: unset !important;
           }
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 28px !important;
-            padding: 28px 20px 24px !important;
+            gap: 32px !important;
+            padding: 40px 24px 28px !important;
             min-height: unset !important;
           }
-          .hero-text, .hero-image {
+          .hero-text {
+            max-width: 100% !important;
             border: none !important;
             padding: 0 !important;
           }
           .hero-image {
             align-items: center !important;
+            border: none !important;
+            padding: 0 !important;
           }
           .hero-image-container {
-            height: 400px !important;
+            height: 480px !important;
             max-width: 100% !important;
           }
           .hero-image-container img {
             object-position: center 15% !important;
+          }
+          .hero-bottom-bar {
+            padding: 14px 24px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .hero-image-container {
+            height: 400px !important;
           }
           .hero-bottom-bar {
             padding: 14px 20px !important;
@@ -98,7 +109,7 @@ export default function Hero() {
                 textTransform: "uppercase",
                 color: "var(--cream)",
                 display: "inline",
-                whiteSpace: "nowrap",
+                margin: 0,
               }}
             />
           </div>
@@ -111,7 +122,7 @@ export default function Hero() {
               letterSpacing: "0.015em",
               textTransform: "uppercase",
               color: "var(--cream)",
-              margin: "24px 0 40px 0",
+              margin: "8px 0 40px 0",
               maxWidth: 500,
             }}
           >
@@ -209,64 +220,40 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Scroll indicator */}
       <div
-        className="hero-bottom-bar"
         style={{
-          borderTop: "1px solid rgba(255,255,255,0.07)",
-          padding: "18px 40px",
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: "column",
           alignItems: "center",
-          maxWidth: 1400,
-          margin: "0 auto",
-          width: "100%",
+          paddingBottom: 32,
+          gap: 8,
         }}
       >
-        <div>
-          <span
-            style={{
-              fontSize: 10,
-              letterSpacing: "0.16em",
-              color: "rgba(255,255,255,0.28)",
-              textTransform: "uppercase",
-              display: "block",
-              marginBottom: 6,
-            }}
-          >
-            Worship · Preaching · Ministry
-          </span>
-          <span
-            style={{
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: "0.12em",
-              color: "rgba(255,255,255,0.6)",
-              textTransform: "uppercase",
-            }}
-          >
-            3M+ followers across platforms
-          </span>
-        </div>
-        <a
-          href="#about"
+        <span
           style={{
-            fontSize: 10,
-            letterSpacing: "0.16em",
-            color: "rgba(255,255,255,0.4)",
+            fontSize: 9,
+            letterSpacing: "0.22em",
+            color: "rgba(255,255,255,0.25)",
             textTransform: "uppercase",
-            textDecoration: "none",
           }}
-          onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLAnchorElement).style.color = "#fff")
-          }
-          onMouseLeave={(e) =>
-            ((e.currentTarget as HTMLAnchorElement).style.color =
-              "rgba(255,255,255,0.4)")
-          }
         >
-          Scroll to explore ↓
-        </a>
+          Scroll
+        </span>
+        <div
+          style={{
+            width: 1,
+            height: 48,
+            background: "linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,0))",
+            animation: "scrollLine 1.8s ease-in-out infinite",
+          }}
+        />
+        <style>{`
+          @keyframes scrollLine {
+            0%, 100% { opacity: 0.3; transform: scaleY(1); transform-origin: top; }
+            50% { opacity: 1; transform: scaleY(1.15); transform-origin: top; }
+          }
+        `}</style>
       </div>
     </section>
   );
